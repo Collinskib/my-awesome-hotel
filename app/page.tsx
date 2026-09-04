@@ -5,21 +5,21 @@ const rooms = [
   {
     id: "standard",
     name: "Standard Room",
-    price: "$129",
+    price: "KSh 8,500",
     description: "Cozy and comfortable with a city view, queen bed, and modern amenities.",
     image: "/images/room3.jpg",
   },
   {
     id: "deluxe",
     name: "Deluxe Room",
-    price: "$199",
+    price: "KSh 14,000",
     description: "Spacious room with premium bedding, workspace, and a relaxing lounge area.",
     image: "/images/room2.jpg",
   },
   {
     id: "suite",
     name: "Executive Suite",
-    price: "$349",
+    price: "KSh 25,000",
     description: "Luxurious suite with a separate living room, king bed, and panoramic views.",
     image: "/images/room1.jpg",
   },
@@ -64,7 +64,7 @@ export default function Home() {
       </section>
 
       <section id="rooms" className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-center text-3xl font-bold text-zinc-900">Our Rooms</h2>
+        <h2 className="text-center text-3xl font-bold text-zinc-800">Our Rooms</h2>
         <p className="mt-3 text-center text-zinc-600">Choose the perfect room for your stay.</p>
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {rooms.map((room) => (
@@ -83,8 +83,8 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold text-zinc-900">{room.name}</h3>
-                  <span className="font-bold text-amber-700">{room.price}<span className="text-sm font-normal text-zinc-500">/night</span></span>
+                  <h3 className="text-xl font-semibold text-zinc-800">{room.name}</h3>
+                  <span className="font-bold text-amber-700">{room.price} <span className="text-sm font-normal text-zinc-500">/night</span></span>
                 </div>
                 <p className="mt-2 text-zinc-600">{room.description}</p>
                 <a
@@ -101,7 +101,7 @@ export default function Home() {
 
       <section id="services" className="bg-zinc-50 py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-center text-3xl font-bold text-zinc-900">Services & Amenities</h2>
+          <h2 className="text-center text-3xl font-bold text-zinc-800">Services & Amenities</h2>
           <p className="mt-3 text-center text-zinc-600">Everything you need for a memorable stay.</p>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, index) => (
@@ -120,7 +120,7 @@ export default function Home() {
                     />
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-zinc-900">{service.title}</h3>
+                <h3 className="text-lg font-semibold text-zinc-800">{service.title}</h3>
                 <p className="mt-1 text-zinc-600">{service.text}</p>
               </div>
             ))}
@@ -129,7 +129,7 @@ export default function Home() {
       </section>
 
       <section id="booking" className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-center text-3xl font-bold text-zinc-900">Book Your Stay</h2>
+        <h2 className="text-center text-3xl font-bold text-zinc-800">Book Your Stay</h2>
         <p className="mt-3 text-center text-zinc-600">Fill in your details and we will confirm your reservation.</p>
         <div className="mt-10">
           <BookingForm />

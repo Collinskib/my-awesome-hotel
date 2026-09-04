@@ -7,7 +7,7 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold text-amber-700">
           My Awesome Hotel
         </Link>
-        <nav className="hidden gap-6 text-sm font-medium sm:flex">
+        <nav className="hidden gap-6 text-sm font-medium text-zinc-700 sm:flex">
           <a href="#rooms" className="hover:text-amber-700">Rooms</a>
           <a href="#services" className="hover:text-amber-700">Services</a>
           <a href="#booking" className="hover:text-amber-700">Book Now</a>
