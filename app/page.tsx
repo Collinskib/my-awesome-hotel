@@ -1,69 +1,140 @@
 import Image from "next/image";
+import BookingForm from "./components/BookingForm";
+
+const rooms = [
+  {
+    id: "standard",
+    name: "Standard Room",
+    price: "$129",
+    description: "Cozy and comfortable with a city view, queen bed, and modern amenities.",
+    image: "/images/room3.jpg",
+  },
+  {
+    id: "deluxe",
+    name: "Deluxe Room",
+    price: "$199",
+    description: "Spacious room with premium bedding, workspace, and a relaxing lounge area.",
+    image: "/images/room2.jpg",
+  },
+  {
+    id: "suite",
+    name: "Executive Suite",
+    price: "$349",
+    description: "Luxurious suite with a separate living room, king bed, and panoramic views.",
+    image: "/images/room1.jpg",
+  },
+];
+
+const services = [
+  { title: "Fine Dining", text: "Award-winning restaurant with local and international cuisine.", image: "/images/dining.jpg" },
+  { title: "Spa & Wellness", text: "Rejuvenate with massages, saunas, and wellness treatments.", image: "/images/spa.jpg" },
+  { title: "Rooftop Pool", text: "Swim and unwind with stunning skyline views.", image: "/images/pool.jpg" },
+  { title: "Free Wi-Fi", text: "High-speed internet in every room and public space." },
+  { title: "Airport Shuttle", text: "Complimentary transfers to and from the airport." },
+  { title: "24/7 Concierge", text: "Always here to help with tours, transport, and more." },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <main className="flex-1">
+      <section className="relative h-[60vh] min-h-[420px] w-full">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/hero.jpg"
+          alt="My Awesome Hotel exterior"
+          fill
           priority
+          sizes="100vw"
+          className="object-cover"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-white">
+          <h1 className="max-w-3xl text-4xl font-bold tracking-tight sm:text-6xl">
+            Welcome to My Awesome Hotel
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="mt-4 max-w-xl text-lg text-zinc-100">
+            Where comfort meets elegance. Book your perfect stay today.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#booking"
+            className="mt-8 rounded-full bg-amber-700 px-8 py-3 font-semibold text-white transition hover:bg-amber-800"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Book Now
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section id="rooms" className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-center text-3xl font-bold text-zinc-900">Our Rooms</h2>
+        <p className="mt-3 text-center text-zinc-600">Choose the perfect room for your stay.</p>
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {rooms.map((room) => (
+            <div
+              key={room.id}
+              className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
+            >
+              <div className="relative h-56 w-full">
+                <Image
+                  src={room.image}
+                  alt={room.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold text-zinc-900">{room.name}</h3>
+                  <span className="font-bold text-amber-700">{room.price}<span className="text-sm font-normal text-zinc-500">/night</span></span>
+                </div>
+                <p className="mt-2 text-zinc-600">{room.description}</p>
+                <a
+                  href="#booking"
+                  className="mt-4 inline-block rounded-lg bg-zinc-900 px-5 py-2 text-sm font-medium text-white transition hover:bg-zinc-800"
+                >
+                  Book This Room
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="bg-zinc-50 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-center text-3xl font-bold text-zinc-900">Services & Amenities</h2>
+          <p className="mt-3 text-center text-zinc-600">Everything you need for a memorable stay.</p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm"
+              >
+                {service.image && (
+                  <div className="relative mb-4 h-40 w-full overflow-hidden rounded-xl">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <h3 className="text-lg font-semibold text-zinc-900">{service.title}</h3>
+                <p className="mt-1 text-zinc-600">{service.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="booking" className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-center text-3xl font-bold text-zinc-900">Book Your Stay</h2>
+        <p className="mt-3 text-center text-zinc-600">Fill in your details and we will confirm your reservation.</p>
+        <div className="mt-10">
+          <BookingForm />
+        </div>
+      </section>
+    </main>
   );
 }
